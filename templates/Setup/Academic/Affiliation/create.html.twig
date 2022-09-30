@@ -1,0 +1,34 @@
+{% extends "Setup/Academic/index.html.twig" %}
+{% block page_header %} Affiliation  {% endblock %}
+{% block page_sub_header %} Add Affiliation {% endblock %}
+{% block breadcurm_nav_list %}
+    {{ render_header_list(path('vx_affiliation_index'), 'Affiliation List', ' fas fa-list-ul') }}
+{% endblock %}
+{% block content_academic %}
+    <div class="panel panel-flat">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div  class="text"><lable>Add Affiliations</lable></div>
+                    <hr>
+                    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+                    {{ form_start(form) }}
+                    {{ form_row(form.name) }}
+                    {{ form_row(form.code) }}
+                    {{ render_save_button() }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        $('.modalTest').fnAjaxModal();
+
+
+    </script>
+
+{% endblock %}

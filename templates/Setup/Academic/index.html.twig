@@ -1,0 +1,80 @@
+{% extends "Layout/index.html.twig" %}
+
+{% block content %}
+    {% set currentPath = path(app.request.attributes.get('_route'),
+        app.request.attributes.get('_route_params')) %}
+    <div class="row">
+        <div class="col-md-3">
+            <div class="content-group vx-setup-layout detailed-group clearfix">
+                <div class="custom-item-width ">
+                    <a href="{{ path('vx_setup_faculty') }}" class="{% if path('vx_setup_faculty')  == currentPath %} active-link-setup {% endif %}">
+                        <div class="setup-single-item clearfix"><div class="floated-ico"><i class=" icon-file-media"></i></div>
+                            <div class="item-head">
+                                <i class="fas fa-book"></i>   Faculty
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="custom-item-width ">
+                    <a href="{{ path('vx_setup_level') }}" class="{% if path('vx_setup_level')  == currentPath %} active-link-setup {% endif %}">
+                        <div class="setup-single-item clearfix"><div class="floated-ico"><i class=" icon-file-media"></i></div>
+                            <div class="item-head">
+                               <i class="fa fa-bookmark"></i> Program Level
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="custom-item-width ">
+                    <a href="{{ path('vx_affiliation_index') }}" class="{% if path('vx_affiliation_index')  == currentPath %} active-link-setup {% endif %}">
+                        <div class="setup-single-item clearfix"><div class="floated-ico"><i class="icon-calendar"></i></div>
+                            <div class="item-head">
+                                <i class=" fab fa-audible"></i>  Affiliation Setup
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="custom-item-width ">
+                    <a href="{{ path('vx_setup_university') }}" class="{% if path('vx_setup_university')  == currentPath %} active-link-setup {% endif %}">
+                        <div class="setup-single-item clearfix"><div class="floated-ico"><i class="icon-calendar"></i></div>
+                            <div class="item-head">
+                              <i class=" fas fa-university"></i>  University Setup
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="custom-item-width ">
+                    <a href="{{ path('vx_setup_exam_type') }}" class="{% if path('vx_setup_exam_type')  == currentPath %} active-link-setup {% endif %}">
+                        <div class="setup-single-item clearfix"><div class="floated-ico"><i class="icon-calendar"></i></div>
+                            <div class="item-head">
+                                <i class="fas fa-calendar-alt"></i>  Exam Type Setup
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="custom-item-width ">
+                    <a href="{{ path('vx_setup_academic_year') }}" class="{% if path('vx_setup_academic_year')  == currentPath %} active-link-setup {% endif %}">
+                        <div class="setup-single-item clearfix"><div class="floated-ico"><i class="icon-calendar"></i></div>
+                            <div class="item-head">
+                                <i class="fas fa-calendar-alt"></i>  Academic Year
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-9">
+            <div class="panel panel-flat">
+                {% block content_academic %}
+
+                {% endblock content_academic %}
+            </div>
+
+        </div>
+        </div>
+
+
+
+
+
+{% endblock %}

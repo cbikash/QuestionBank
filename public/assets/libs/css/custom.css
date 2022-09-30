@@ -1,0 +1,127 @@
+.vx-setup-layout{
+    display: block;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+    padding: 5px 10px;
+}
+
+.custom-item-width a {
+    padding: 10px 5px;
+    display: block;
+    color: #7b7b7b;
+    border-bottom: 1px solid #e5e5e5;
+}
+.custom-item-width a:hover {
+    padding: 10px 5px;
+    display: block;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    border-bottom: 1px solid #e5e5e5;
+}
+.active-link-setup {
+    border-radius: 5px;
+    background: #007bff !important;
+    color: white !important;
+
+}
+
+.fn-setup-layout .setup-single-item {
+    /* border: 1px solid #dadce0; */
+    /* border-radius: 0.25rem; */
+    /* color: #3e3e3e; */
+    padding: 10px 10px;
+    /* text-align: center; */
+    margin-bottom: 0px;
+    /* background: linear-gradient(#ffffff, #edf0f3); */
+}
+.floated-ico {
+    float: left;
+    margin-right: 10px;
+}
+.item-head {
+    font-size: 12px;
+    font-weight: 500;
+}
+.panel {
+    margin-bottom: 20px;
+    border-color: #ddd;
+    color: #333333;
+}
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+    box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+}
+.panel {
+    border: 1px solid #e5e5e5;
+    /* box-shadow: 0 0 3px rgb(31 30 47 / 5%); */
+    box-shadow: none;
+}
+.panel-body{
+
+    background: white;
+}
+
+.panel-body {
+    padding: 20px;
+}
+
+.item-head {
+    font-size: 12px;
+    font-weight: 500;
+}
+.pageheader-title .sub-header{
+    color: #7b7b7b;
+    font-size: 12px;
+}
+.pageheader-title span{
+    color: #3d405c;
+    font-weight: bold;
+}
+.breadcrumb-bar{
+   position: absolute;
+    right: 10px;
+    top:-5px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.action .icons-list {
+    text-align: center;
+    list-style-type:none;
+    padding: 0;
+
+}
+.action .icons-list li {
+    display: inline;
+    margin: 0 3px;
+}
+
+
+
+.daterangepicker select.yearselect {
+    width: 50%;
+}
+.calendar-table select.input-sm {
+    height: 34px;
+    line-height: 34px;
+    width: 45%;
+    float: left;
+    margin: 0px 3px;
+}
+.calendar-table .daterangepicker select.yearselect {
+    width: 50%;
+    float: left;
+}
+
+.daterangepicker.dropdown-menu{
+    z-index: 9999;
+}
+
+.daterangepicker td.active, .daterangepicker td.active:hover, .daterangepicker td.active:focus {
+    background-color: #4375ba;
+    color: #fff;
+}

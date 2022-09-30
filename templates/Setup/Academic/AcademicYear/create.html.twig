@@ -1,0 +1,52 @@
+{% extends "Setup/Academic/index.html.twig" %}
+{% block page_header %} University {% endblock %}
+{% block page_sub_header %} Add University {% endblock %}
+{% block breadcurm_nav_list %}
+    {{ render_header_list(path('vx_setup_university'), 'Univeristy List', ' fas fa-list-ul') }}
+{% endblock %}
+
+{% block content_academic %}
+    <div class="panel panel-flat">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div  class="text"><lable>Add University</lable></div>
+                    <hr>
+                    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+                    {{ form_start(form) }}
+                    {{ form_row(form.name) }}
+                    {{ form_row(form.abbreviation) }}
+                    {{ form_row(form.startDate) }}
+                    {{ form_row(form.endDate) }}
+                    {{ render_save_button() }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        $(document).ready(function () {
+            $('.datePicker').daterangepicker({
+                timePicker: true,
+                showDropdowns: true,
+                locale: {
+                    format: 'YYYY-MM-DD'
+                },
+                singleDatePicker: true,
+                useCurrent: false
+            })
+
+            // if ($("#datePickerStartDate").length) {
+            //     $('#datePickerStartDate').datetimepicker()
+            // }
+
+        })
+
+
+    </script>
+
+{% endblock %}

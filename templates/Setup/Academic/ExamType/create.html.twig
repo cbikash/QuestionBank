@@ -1,0 +1,36 @@
+{% extends "Setup/Academic/index.html.twig" %}
+{% block page_header %} Exam Type {% endblock %}
+{% block page_sub_header %} Add Exam Type {% endblock %}
+{% block breadcurm_nav_list %}
+    {{ render_header_list(path('vx_setup_exam_type'), 'Exam Type List', ' fas fa-list-ul') }}
+{% endblock %}
+
+{% block content_academic %}
+    <div class="panel panel-flat">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div  class="text"><lable>Add Exam Type</lable></div>
+                    <hr>
+                    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+                    {{ form_start(form) }}
+                    {{ form_row(form.name) }}
+                    {{ form_row(form.code) }}
+                    {{ form_row(form.description) }}
+                    {{ render_save_button() }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        $('.modalTest').fnAjaxModal();
+
+
+    </script>
+
+{% endblock %}
