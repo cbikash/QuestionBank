@@ -77,6 +77,10 @@ class AcademicSession
 
     use CommonTrait;
 
+    public function __toString()
+    {
+        return $this->name;
+    }
 
 
 

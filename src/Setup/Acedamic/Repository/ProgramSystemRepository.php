@@ -4,7 +4,9 @@
 namespace Vxsoft\Setup\Acedamic\Repository;
 
 
-class ProgramSystemRepository
+use Doctrine\ORM\EntityRepository;
+
+class ProgramSystemRepository extends EntityRepository
 {
 
 }

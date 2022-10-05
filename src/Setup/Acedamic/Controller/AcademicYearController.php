@@ -69,7 +69,6 @@ class AcademicYearController extends AbstractController
             $this->em->persist($academicYear);
             $this->em->flush();
             return $this->redirectToRoute('vx_setup_academic_year');
-
         }
         $form = $form->createView();
         return $this->render('Setup\Academic\AcademicYear\create.html.twig', compact('form'));
@@ -85,7 +84,7 @@ class AcademicYearController extends AbstractController
         $academicYear = $this->em->getRepository(AcademicYear::class)->findOneBy(['id'=>$id]);
         $message = $this->mainService->softDelete($academicYear);
 
-        return $this->redirectToRoute('vx_setup_faculty');
+        return $this->redirectToRoute('vx_setup_academic_year');
 
     }
 

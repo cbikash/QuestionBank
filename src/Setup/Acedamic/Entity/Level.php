@@ -80,4 +80,8 @@ class Level
     }
 
 
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

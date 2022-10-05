@@ -1,0 +1,60 @@
+{% extends "Setup/Academic/index.html.twig" %}
+{% block page_header %} Program System {% endblock %}
+{% block page_sub_header %} Add Program System {% endblock %}
+{% block breadcurm_nav_list %}
+    {{ render_header_list(path('vx_setup_program_system'), 'Program System List', ' fas fa-list-ul') }}
+{% endblock %}
+
+{% block content_academic %}
+    <div class="panel panel-flat">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div  class="text"><lable>Add System</lable></div>
+                    <hr>
+                </div>
+            </div>
+                    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+                    {{ form_start(form) }}
+            <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(form.title) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.abbreviation) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.durationType) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.duration) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.numberOfSession) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.programType) }}
+                    </div>
+
+                    <div class="col-md-6">
+                        {{ form_row(form.description) }}
+                    </div>
+                <div class="col-md-12">
+                    {{ render_save_button() }}
+                </div>
+                    {{ form_end(form) }}
+
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        $('.modalTest').fnAjaxModal();
+
+
+    </script>
+
+{% endblock %}

@@ -3,11 +3,14 @@
 
 namespace Vxsoft\Program\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Vxsoft\Batch\Entity\Batch;
 use Vxsoft\Main\MainTrait\CommonTrait;
 use Vxsoft\Setup\Acedamic\Entity\Affiliation;
 use Vxsoft\Setup\Acedamic\Entity\Faculty;
 use Vxsoft\Setup\Acedamic\Entity\Level;
+use Vxsoft\Setup\Acedamic\Entity\ProgramSystem;
 use Vxsoft\Setup\Acedamic\Entity\University;
 
 /**
@@ -69,10 +72,28 @@ class Program
     private $university;
 
     /**
+     * @var ProgramSystem
+     * @ORM\ManyToOne(targetEntity="Vxsoft\Setup\Acedamic\Entity\ProgramSystem")
+     */
+    private $system;
+
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Vxsoft\Batch\Entity\Batch", mappedBy="program")
+     */
+    private $batches;
+
+    /**
      * @var integer
      * @ORM\Column(type="integer")
      */
     private $MaxDuration;
+
+    public function __construct()
+    {
+        $this->batches = new ArrayCollection();
+    }
+
 
     /**
      * @return int
@@ -195,6 +216,22 @@ class Program
     }
 
     /**
+     * @return ProgramSystem | null
+     */
+    public function getSystem(): ?ProgramSystem
+    {
+        return $this->system;
+    }
+
+    /**
+     * @param ProgramSystem $system
+     */
+    public function setSystem(?ProgramSystem $system): void
+    {
+        $this->system = $system;
+    }
+
+    /**
      * @return int
      */
     public function getMaxDuration(): int
@@ -209,6 +246,53 @@ class Program
     {
         $this->MaxDuration = $MaxDuration;
     }
+
+
+
+    public function getTotalSessions(): int
+    {
+        $totalSessions = 0;
+        $programSystem = $this->getSystem();
+
+        if ($programSystem instanceof ProgramSystem) {
+            $duration = $programSystem->getDuration();
+            $session = $programSystem->getNumberOfSession();
+            $totalSessions = $duration * $session;
+        }
+
+        return $totalSessions;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getBatches()
+    {
+        return $this->batches;
+    }
+
+    /**
+     * @param ArrayCollection $batches
+     */
+    public function setBatches(ArrayCollection $batches): void
+    {
+        $this->batches = $batches;
+    }
+
+    public function addBatch(?Batch $batch){
+        if(!$this->batches->contains($batch)){
+            $this->batches->add($batch);
+            $batch->setProgram($this);
+        }
+    }
+
+    public function removeBatch(?Batch $batch){
+        if($this->batches->contains($batch)){
+            $this->batches->removeElement($batch);
+            $batch->setProgram(null);
+        }
+    }
+
 
 
     use CommonTrait;

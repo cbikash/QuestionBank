@@ -16,11 +16,11 @@ class AcademicYearType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', TextType::class,[])
+        $builder->add('academicYearName', TextType::class,[])
             ->add('abbreviation', TextType::class, [
 
             ])
-            ->add('startDate', DateTimeType::class,[
+            ->add('toDate', DateTimeType::class,[
 //                'required' => true,
 //                'html5' => false,
 //                'widget' => 'single_text',
@@ -28,8 +28,9 @@ class AcademicYearType extends AbstractType
 //                    'class'=> 'datePicker'
                 ]
             ])
-            ->add('endDate', DateTimeType::class, [
-//                'required' => true,
+
+            ->add('fromDate', DateTimeType::class, [
+                'required' => true,
 //                'html5' => false,
 //                'widget' => 'single_text',
                 'attr' => [

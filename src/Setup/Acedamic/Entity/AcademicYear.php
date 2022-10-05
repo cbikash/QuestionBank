@@ -4,6 +4,7 @@
 namespace Vxsoft\Setup\Acedamic\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Vxsoft\Main\MainTrait\CommonTrait;
 
@@ -16,111 +17,96 @@ use Vxsoft\Main\MainTrait\CommonTrait;
 class AcademicYear
 {
     /**
-     * @var integer
-     * @ORM\Column(type="integer")
      * @ORM\Id()
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
-    private $name;
+    private $academicYearName;
 
     /**
-     * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $abbreviation;
 
     /**
-     * @var DateTime
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank()
      */
-    private $startDate;
+    private $fromDate;
 
     /**
-     * @var DateTime
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank()
      */
-    private $endDate;
+    private $toDate;
 
 
-    /**
-     * @return int
-     */
-    public function getId(): int
+    use CommonTrait;
+
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-
-    /**
-     * @return string
-     */
-    public function getName(): string
+    public function getAcademicYearName(): ?string
     {
-        return $this->name;
+        return $this->academicYearName;
     }
 
-    /**
-     * @param string $name
-     */
-    public function setName(string $name): void
+    public function setAcademicYearName(string $academicYearName): self
     {
-        $this->name = $name;
+        $this->academicYearName = $academicYearName;
+
+        return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getAbbreviation(): ?string
     {
         return $this->abbreviation;
     }
 
-    /**
-     * @param string $abbreviation
-     */
-    public function setAbbreviation(?string $abbreviation): void
+    public function setAbbreviation(string $abbreviation): self
     {
         $this->abbreviation = $abbreviation;
+
+        return $this;
     }
 
-    /**
-     * @return DateTime
-     */
-    public function getStartDate(): ?DateTime
+    public function getFromDate(): ?\DateTimeInterface
     {
-        return $this->startDate;
+        return $this->fromDate;
     }
 
-    /**
-     * @param DateTime $startDate
-     */
-    public function setStartDate(?DateTime $startDate): void
+    public function setFromDate(\DateTimeInterface $adFromDate): self
     {
-        $this->startDate = $startDate;
+        $this->fromDate = $adFromDate;
+
+        return $this;
     }
 
-    /**
-     * @return DateTime
-     */
-    public function getEndDate(): ?DateTime
+    public function getToDate(): ?\DateTimeInterface
     {
-        return $this->endDate;
+        return $this->toDate;
     }
 
-    /**
-     * @param DateTime $endDate
-     */
-    public function setEndDate(?DateTime $endDate): void
+    public function setToDate(\DateTimeInterface $adToDate): self
     {
-        $this->endDate = $endDate;
+        $this->toDate = $adToDate;
+
+        return $this;
     }
 
+    public function __toString()
+    {
+        return $this->academicYearName;
+    }
     use CommonTrait;
 
 

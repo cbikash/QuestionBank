@@ -13,7 +13,7 @@
                     <tr class="border-double">
                         <th class="sn text-semibold ">#</th>
                         <th class="text-semibold ">Name</th>
-                        <th class="text-semibold ">Code</th>
+
                         <th class="text-semibold">Abbreviation</th>
                         <th>Start Date</th>
                         <th>End Date</th>
@@ -25,15 +25,15 @@
                     {% for academicYear in academicYears %}
                         <tr>
                             <td>{{ counter }}</td>
-                            <td>{{ academicYear.name }}</td>
-                            <td>{{ academicYear.code }}</td>
+                            <td>{{ academicYear.academicYearName }}</td>
+
                             <td>{{ academicYear.abbreviation }}</td>
-                            <td>{{ academicYear.startDate  }}</td>
-                            <td>{{ academicYear.endDate }}</td>
+                            <td>{{ academicYear.toDate | date('Y-m-d') }}</td>
+                            <td>{{ academicYear.fromDate  | date('Y-m-d') }}</td>
                             <td class="action text-center">
                                 <ul class="icons-list">
-                                    {{ render_action_button(path('vx_setup_university_update', {'id':academicYear.id }), '','fas fa-pencil-alt', 'text-info' ) }}
-                                    {{ render_action_button(path('vx_delete_university', {'id':academicYear.id }), '','fas fa-trash-alt', 'text-danger' ) }}
+                                    {{ render_action_button(path('vx_setup_academic_year_update', {'id':academicYear.id }), '','fas fa-pencil-alt', 'text-info' ) }}
+                                    {{ render_action_button(path('vx_delete_academic_year', {'id':academicYear.id }), '','fas fa-trash-alt', 'text-danger' ) }}
                                 </ul>
                             </td>
                         </tr>

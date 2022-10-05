@@ -14,10 +14,10 @@
                     <hr>
                     {% form_theme form 'bootstrap_4_layout.html.twig' %}
                     {{ form_start(form) }}
-                    {{ form_row(form.name) }}
+                    {{ form_row(form.academicYearName) }}
                     {{ form_row(form.abbreviation) }}
-                    {{ form_row(form.startDate) }}
-                    {{ form_row(form.endDate) }}
+                    {{ form_row(form.fromDate) }}
+                    {{ form_row(form.toDate) }}
                     {{ render_save_button() }}
                     {{ form_end(form) }}
                 </div>

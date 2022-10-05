@@ -1,0 +1,49 @@
+{% extends "Layout/index.html.twig" %}
+{% block page_header %} Program List {% endblock %}
+{% block breadcurm_nav_list %}
+    {{ render_header_list(path('vx_program_create'), 'Add Program', 'fas fa-plus-circle') }}
+{% endblock %}
+
+{% block content %}
+    <div class="panel panel-flat">
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="custom-table table  table-hover">
+                    <thead class="bg-table-head">
+                    <tr class="border-double">
+                        <th class="sn text-semibold ">#</th>
+                        <th class="text-semibold ">Code</th>
+                        <th class="text-semibold ">Title</th>
+                        <th>Affiliation</th>
+                        <th>Level</th>
+                        <th>System</th>
+
+                        <th class="text-semibold  action text-center">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set counter = 1 %}
+                    {% for program in programs %}
+                        <tr>
+                            <td>{{ counter }}</td>
+                            <td><a href="{{ path('vx_program_details', {'id': program.id}) }}">{{ program.code }}</a></td>
+                            <td><a href="{{ path('vx_program_details', {'id': program.id}) }}">{{ program.title }} </a></td>
+                            <td>{{ program.affiliation }}</td>
+                            <td>{{ program.level }}</td>
+                            <td>{{ program.system }}</td>
+                            <td class="action text-center">
+                                <ul class="icons-list">
+                                    {{ render_action_button(path('vx_program_update', {'program':program.id }), '','fas fa-pencil-alt', 'text-info' ) }}
+                                    {{ render_action_button(path('vx_delete_level', {'id':program.id }), '','fas fa-trash-alt', 'text-danger' ) }}
+                                </ul>
+                            </td>
+                        </tr>
+                        {% set counter = counter + 1 %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -76,6 +76,10 @@ class Faculty
         $this->name = $name;
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     use CommonTrait;
 

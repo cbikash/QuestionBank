@@ -100,6 +100,10 @@ class ExamType
         $this->description = $description;
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
     use CommonTrait;
 
 

@@ -9,4 +9,5 @@ use Doctrine\ORM\EntityRepository;
 class BatchRepository extends EntityRepository
 {
 
+
 }

@@ -1,0 +1,85 @@
+{% extends "Layout/index.html.twig" %}
+{% block page_header %} Program Details {% endblock %}
+{% block breadcurm_nav_list %}
+{% endblock %}
+
+{% block content %}
+
+    {% set currentPath = path(app.request.attributes.get('_route'),
+        app.request.attributes.get('_route_params')) %}
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-flat">
+                <div class="center" style="text-align: center;padding: 10px">
+                    <h3>{{ batch.title }}</h3>
+                    <b>({{ batch.code }})</b>
+                    <br>
+                    <a class="text-primary" href="{{ path('vx_batch_update',{'program': batch.program.id, 'batch': batch.id}) }}"><i class="fas fa-edit"></i> Edit Program</a>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-6" style="text-align: left; color: #3b4151">
+                            Faculty
+                        </div>
+                        <div class="col-md-6" style="text-align: left;color: #0a0a0a">
+                            {{ batch.program.faculty }}
+                        </div>
+
+                        <div class="col-md-6" style="text-align: left; color: #3b4151">
+                            Affiliation
+                        </div>
+                        <div class="col-md-6" style="text-align: left;color: #0a0a0a">
+                            {{ batch.program.affiliation }}
+                        </div>
+
+                        <div class="col-md-6" style="text-align: left; color: #3b4151">
+                            Level
+                        </div>
+                        <div class="col-md-6" style="text-align: left;color: #0a0a0a">
+                            {{ batch.program.level }}
+                        </div>
+
+                        <div class="col-md-6" style="text-align: left; color: #3b4151">
+                            University
+                        </div>
+                        <div class="col-md-6" style="text-align: left;color: #0a0a0a">
+                            {{ batch.program.university }}
+                        </div>
+
+                        <div class="col-md-6" style="text-align: left; color: #3b4151">
+                            Program System
+                        </div>
+                        <div class="col-md-6" style="text-align: left;color: #0a0a0a">
+                            {{ batch.program.system }}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 ">
+            <div class="panel panel-flat" style="background: white">
+                <ul class="nav nav-tabs tab-section">
+                    <li class="nav-item">
+                        <a class="nav-link {% if path('vx_batch_details',{'batch': batch.id})  == currentPath %} active {% endif %}" href="{{ path('vx_batch_details',{'batch': batch.id}) }}">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+                <div class="program-body">
+                    {% block program_details %}
+
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+
+
+{% endblock %}

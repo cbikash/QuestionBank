@@ -1,0 +1,34 @@
+{% extends 'Program/Program/program_details_layout.html.twig' %}
+{% block program_details %}
+    <div class="row" style="padding: 10px">
+        <div class="col-md-12" style="text-align: left;">
+            Add Batch
+        </div>
+        <hr>
+        <div class="col-md-12">
+            {% form_theme form 'bootstrap_4_layout.html.twig' %}
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form_row(form.title) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.code) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.academicYear) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.academicSession) }}
+                </div>
+                <div class="col-md-12">
+                    {{ render_save_button() }}
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+
+
+{% endblock %}

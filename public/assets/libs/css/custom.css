@@ -84,7 +84,7 @@
 }
 .breadcrumb-bar{
    position: absolute;
-    right: 10px;
+    right: 17px;
     top:-5px;
     margin-bottom: 20px;
     padding-bottom: 20px;
@@ -124,4 +124,9 @@
 .daterangepicker td.active, .daterangepicker td.active:hover, .daterangepicker td.active:focus {
     background-color: #4375ba;
     color: #fff;
+}
+
+.tab-section .nav-item .active{
+    color: #ff6800 !important;
+    border-top: 2px solid #0a3c93;
 }

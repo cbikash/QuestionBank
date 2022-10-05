@@ -1,0 +1,47 @@
+{% extends "Layout/index.html.twig" %}
+{% block page_header %} Batch List {% endblock %}
+{% block breadcurm_nav_list %}
+{% endblock %}
+{% block content %}
+    <div class="panel panel-flat">
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Code
+                        </th>
+                        <th>Name</th>
+                        <th>Academic(Year/Session)</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set counter = 1 %}
+                    {% for batch in batches %}
+                        <tr>
+                            <td>{{ counter }}</td>
+                            <td><a href="{{ path('vx_batch_details', {'batch': batch.id}) }}">{{ batch.title }} </a> </td>
+                            <td>{{ batch.code }}</td>
+                            <td>{{ batch.academicYear }}</td>
+                            <td class="action text-center">
+                                <ul class="icons-list">
+                                    {{ render_action_button(path('vx_batch_update', {'batch':batch.id, 'program' : batch.program.id }), '','fas fa-pencil-alt', 'text-info' ) }}
+                                    {{ render_action_button(path('vx_delete_level', {'id':batch.id }), '','fas fa-trash-alt', 'text-danger' ) }}
+                                </ul>
+                            </td>
+                        </tr>
+                        {% set counter = counter +1 %}
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

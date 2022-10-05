@@ -1,0 +1,59 @@
+{% extends "Layout/index.html.twig" %}
+{% block page_header %} Program List {% endblock %}
+{% block breadcurm_nav_list %}
+    {#    {{ render_header_list(path('vx_level_add'), 'Add Program Level', 'fas fa-plus-circle') }}#}
+{% endblock %}
+{% block content %}
+    <div class="panel panel-flat">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div  class="text"><lable>Add Academic Session</lable></div>
+                    <hr>
+                </div>
+            </div>
+                    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+                    {{ form_start(form) }}
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form_row(form.title) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.code) }}
+
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.abbreviation) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.affiliation) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.faculty) }}
+
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.level) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.university) }}
+
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.system) }}
+
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.maxDuration) }}
+                </div>
+                <div class="col-md-12">
+                    {{ render_save_button() }}
+                </div>
+            </div>
+                    {{ form_end(form) }}
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}
