@@ -1,0 +1,53 @@
+{% extends "Layout/index.html.twig" %}
+{% block page_header %} Create Course {% endblock %}
+{% block breadcurm_nav_list %}
+    {#    {{ render_header_list(path('vx_level_add'), 'Add Program Level', 'fas fa-plus-circle') }}#}
+{% endblock %}
+{% block content %}
+    <div class="panel panel-flat">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div  class="text"><lable>Add Course</lable></div>
+                    <hr>
+                </div>
+            </div>
+            {% form_theme form 'bootstrap_4_layout.html.twig' %}
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col-md-12">
+                    {{ form_row(form.type) }}
+                </div>
+                <div class="col-md-12">
+                    {{ form_row(form.name) }}
+                </div>
+                <div class="col-md-12">
+                    {{ form_row(form.code) }}
+                </div>
+                <div class="col-md-12">
+                    {{ form_row(form.overview) }}
+                </div>
+                <div class="col-md-12">
+                    {{ render_save_button() }}
+                </div>
+
+            </div>
+            {{ form_end(form) }}
+        </div>
+
+
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#course_overview' ) )
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+
+    </script>
+{% endblock %}

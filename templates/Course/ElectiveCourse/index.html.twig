@@ -1,0 +1,46 @@
+{% extends "Layout/index.html.twig" %}
+{% block page_header %} Course List {% endblock %}
+{% block breadcurm_nav_list %}
+    {{ render_header_list(path('vx_elective_course_create'), 'Add Elective Course', 'fas fa-plus-circle') }}
+{% endblock %}
+
+{% block content %}
+    <div class="panel panel-flat">
+        <div class="panel-body">
+            <div class="table-responsive">
+                {% if courses | length %}
+                    <table class="table tab-content">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Code</th>
+                            <th>Course</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% set count = 1 %}
+                        {% for course in courses %}
+                            <tr>
+                                <td>{{ count }}</td>
+                                <td>{{ course.name }}</td>
+                                <td>{{ course.code }}</td>
+                                <td>{{ course.course }}</td>
+
+                                <td>
+
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div class="text-danger">content not found</div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

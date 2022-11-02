@@ -18,6 +18,11 @@ class Course
    CONST COURSE_TYPE_ELECTIVE = "ELECTIVE";
    CONST COURSE_TYPE_COMPULSORY = "COMPULSORY";
 
+  static $courses  = [
+      self::COURSE_TYPE_ELECTIVE => "ELECTIVE",
+      self::COURSE_TYPE_COMPULSORY => "COMPULSORY",
+       ];
+
     /**
      * @var integer
      * @ORM\Column(type="integer")
@@ -175,6 +180,11 @@ class Course
     public function setDetails($details): void
     {
         $this->details = $details;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     use CommonTrait;
