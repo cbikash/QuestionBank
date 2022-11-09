@@ -1,1 +1,54 @@
 {% extends 'Batch/batch_details_layout.html.twig' %}
+ {% block program_details %}
+     <div class="program-body">
+         <div class="row">
+             {% for batchSession in batch.batchSessions %}
+                 <div class="col-md-12">
+                     <div class="header-collaspe">
+                         <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                 data-target="#collapse-{{ batchSession.id }}" aria-expanded="true"
+                                 aria-controls="collapseOne">
+                             Session {{ batchSession.session }}
+                         </button>
+                     </div>
+                 </div>
+                 <div class="col-md-12">
+                     <div id="collapse-{{ batchSession.id }}" class="collapse " aria-labelledby="headingOne"
+                          data-parent="#accordionExample">
+                         <div class="card-body">
+                             {% set courses = batchSession.batchSessionCourses %}
+                             <div class="text-center"><a
+                                         href="{{ path('vx_create_batchSession_course', {'batchsession': batchSession.id}) }}">Add
+                                     Courses</a></div>
+                             {% if courses %}
+
+                                 <div class="responsive-table">
+                                     <table class="table">
+                                         <thead>
+                                         <tr>
+                                             <th>Course</th>
+                                             <th>CourseType</th>
+                                         </tr>
+                                         </thead>
+                                         <tbody>
+                                         {% for course in courses %}
+                                             <tr>
+                                                 <td>
+                                                     {{ course.course.name }}
+                                                 </td>
+                                                 <td>{{ course.course.type }}</td>
+                                             </tr>
+                                         {% endfor %}
+                                         </tbody>
+                                     </table>
+                                 </div>
+                             {% else %}
+                                 <div class="text-danger">Not Course found</div>
+                             {% endif %}
+                         </div>
+                     </div>
+                 </div>
+             {% endfor %}
+         </div>
+     </div>
+ {% endblock %}

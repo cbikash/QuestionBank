@@ -24,7 +24,7 @@ class BatchSessionCourse
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="Vxsoft\Batch\Entity\BatchSession")
+     * @ORM\ManyToOne(targetEntity="Vxsoft\Batch\Entity\BatchSession", inversedBy="batchSessionCourses")
      */
     private $batchSession;
 

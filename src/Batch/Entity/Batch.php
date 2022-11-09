@@ -190,6 +190,10 @@ class Batch
         $this->program = $program;
     }
 
+    public function __toString()
+    {
+       return $this->title;
+    }
 
 
 

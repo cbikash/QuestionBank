@@ -293,6 +293,10 @@ class Program
         }
     }
 
+    public function __toString()
+    {
+      return $this->title;
+    }
 
 
     use CommonTrait;

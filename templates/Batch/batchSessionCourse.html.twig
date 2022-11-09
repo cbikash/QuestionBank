@@ -1,0 +1,28 @@
+
+{% extends 'Batch/batch_details_layout.html.twig' %}
+ {% block program_details %}
+     <div class="program-body">
+         <div class="row">
+             <div class="col-md-12">
+                 {% form_theme form 'bootstrap_4_layout.html.twig' %}
+                 {{ form_start(form) }}
+                 <div class="row">
+                     <div class="col-md-12">
+                         {{ form_row(form.course) }}
+                     </div>
+                     <div class="col-md-12">
+                         {{ render_save_button() }}
+                     </div>
+                 </div>
+                 {{ form_end(form) }}
+             </div>
+         </div>
+     </div>
+ {% endblock %}
+{% block scripts %}
+    <script>
+        $(document).ready(function () {
+            $('.select2').select2();
+        })
+    </script>
+{% endblock %}
